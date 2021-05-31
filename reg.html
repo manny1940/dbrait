@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>STUDENT REGISTRATION FORM</title>
+	<script type="text/javascript" src="jquery-3.4.1.min.js"></script>
+	<script type="text/javascript" src="program.js"></script>
+	<script>
+
+		function validate(){
+			var name=document.form.name.value;
+			var fname=document.form.Fname.value;
+			var mname=document.form.Mname.value;
+			var email=document.form.Email_ID.value;
+			var presentaddress=document.form.preaddress.value;
+			var permanentaddress=document.form.peraddress.value;
+			var fatherNo=document.form.f_phone_no.value;
+			var yourNo=document.form.y_phone_no.value;
+			var board=document.form.board.value;
+			var percentage=document.form.percentage.value;
+			var yop=document.form.yop.value;
+
+			if(name.length<=0){
+				alert("Name is required!");
+				document.form.name.focus();
+				return false;
+			}
+			if(!name.match(/^[A-Za-z ]+$/)){
+				alert("Name should contain alphabets only!");
+				return false
+			}
+			
+			if(fname.length<=0){
+				alert("Father's Name is required!");
+				document.form.Fname.focus();
+				return false;
+			}
+			if(!fname.match(/^[A-Za-z ]+$/)){
+				alert("Father's Name should contain alphabets only!");
+				return false
+			}
+
+			if(mname.length<=0){
+				alert("Mother's Name is required!");
+				document.form.Mname.focus();
+				return false;
+			}
+			if(!mname.match(/^[A-Za-z ]+$/)){
+				alert("Mother's Name should contain alphabets only!");
+				return false
+			}
+
+			if(email.length<=0){
+				alert("Email Id is required!");
+				document.form.Email_ID.focus();
+				return false;
+			}
+			if(email.match(/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/)){
+				//alert("Valid email address!");
+				document.form.Email_ID.focus();
+				return true;
+			}
+			else{
+				alert("You have entered an invalid email address!");
+				document.form.Email_ID.focus();
+				return false;
+			}
+
+			if(fatherNo.length<=0){
+				alert("Father's Number is required!");
+				document.form.f_phone_no.focus();
+				return false;
+			}
+			if(fatherNo.length>10){
+				alert("Only 10 digits required!");
+				document.form.f_phone_no.focus();
+				return false;
+			}
+			if(!fatherNo.match(/^[0-9]+$/)){
+				alert("Father's Mobile number should contain number only!");
+				return false;
+			}
+
+			if(yourNo.length<=0){
+				alert("Your Number is required!");
+				document.form.y_phone_no.focus();
+				return false;
+			}
+			if(yourNo.length<10){
+				alert("Only 10 digits required!");
+				document.form.y_phone_no.focus();
+				return false;
+			}
+			if(!yourNo.match(/^[0-9]+$/)){
+				alert("Your Mobile number should contain number only!");
+				return false
+			}
+
+			if(document.form.gender.value == ""){
+                window.alert("Please Choose your Gender");
+                document.form.gender.focus();
+                return false;
+            }
+
+			if(presentaddress.length<=0){
+				alert("Please fill the Present address!");
+				document.form.prename.focus();
+				return false;
+			}
+
+			if(permanentaddress.length<=0){
+				alert("Please fill the Permanent address!");
+				document.form.pername.focus();
+				return false;
+			}
+
+			if(document.form.course.value == ""){
+                window.alert("Please choose your course");
+                document.form.course.focus();
+                return false;
+            }
+
+			if(board.length<=0){
+				window.alert("Board field is required");
+                document.form.board.focus();
+                return false;
+			}
+			if(percentage<=0){
+				window.alert("Please fill your percentage");
+                document.form.percentage.focus();
+                return false;
+			}
+			if(yop.length<=0){
+				window.alert("Please fill the year of passing");
+                document.form.passing.focus();
+                return false;
+			}
+
+
+		}
+
+	</script>
+
+</head>
+<body>
+	<center>
+	<form name="form">
+		<h2><u>STUDENT REGISTRATION FORM</u></h2>
+		<table>
+			<tr>
+				<td><center><h3>Personal Information</h3></center></td>
+			</tr>
+			<tr>
+				<td>NAME:</td>
+				<td><input type="text" name="name" placeholder="Name"></td>
+			</tr>
+			<tr>
+				<td>FATHER'S NAME:</td>
+				<td><input type="text" name="Fname" placeholder="Father's Name" ></td>
+			</tr>
+			<tr>
+				<td>MOTHER'S NAME:</td>
+				<td><input type="text" name="Mname" placeholder="Mother's Name" ></td>
+			</tr>
+			<tr>
+				<td>DATE OF BIRTH</td>
+				<td><input type="date" name="dob" min="01-04-1998" max="01-04-2030" ></td>
+			</tr>
+			<tr>
+				<td>EMAIL ID:</td>
+				<td><input type="email" name="Email_ID"></td>
+			</tr>
+			<tr>
+				<td>FATHER'S MOBILE NO.:</td>
+				<td><input type="text" name="f_phone_no"></td>
+			</tr>
+			<tr>
+				<td>YOUR MOBILE NO.:</td>
+				<td><input type="text" name="y_phone_no"></td>
+			</tr>
+			<tr>
+				<td>GENDER:</td>
+				<td><input type="radio" name="gender" value="male">MALE
+					<input type="radio" name="gender" value="female">Female</td>
+			</tr>
+			<!--
+			
+			-->
+			
+			<tr>
+				<td>PRESENT ADDRESS:</td>
+				<td><textarea name="preaddress" cols="60" rows="5"></textarea></td>
+			</tr>
+			<tr>
+				<td>PERMANENT ADDRESS:</td>
+				<td><textarea name="peraddress"cols="60" rows="5"></textarea></td>
+			</tr>
+
+			<tr>
+                <td>COURSE</td>
+                <td>
+                    <select id="course" name="course">
+                        <option value="">Select Course</option>
+                        <option value="diploma">Diploma</option>
+                        <option value="degree">Degree</option>
+                    </select>
+                </td>
+            </tr>
+			
+			<tr>
+				<td>PREFERENCE 1:</td>
+				<td><select name="preference 1" id="1p">
+					<option value="">Preference 1</option>
+					<option value="BCSE" id="btech" class="btech">Btech. CSE</option>
+                    <option value="BCIVIL" id="btech" class="btech">Btech. CIVIL</option>
+                    <option value="BECE" id="btech" class="btech">Btech. ECE</option>
+                    <option value="DCE" id="dip" class="dip">DCE</option>
+                    <option value="DECE" id="dip" class="dip">Dip. ECE</option>
+                    <option value="DCVIL" id="dip" class="dip">Dip. Civil</option>
+                    <option value="DIT" id="dip" class="dip">Dip. IT</option>
+                    <option value="DMECH" id="dip" class="dip">Dip. MECH</option>
+                    <option value="DELEC" id="dip" class="dip">Dip. ELEC</option>
+				</select></td>
+			</tr>
+			<tr>
+				<td>PREFERENCE 2:</td>
+				<td><select name="preference 2" id="2p">
+					<option value="">Preference 2</option>
+					<option value="BCSE" id="btech" class="btech">Btech. CSE</option>
+                    <option value="BCIVIL" id="btech" class="btech">Btech. CIVIL</option>
+                    <option value="BECE" id="btech" class="btech">Btech. ECE</option>
+                    <option value="DCE" id="dip" class="dip">DCE</option>
+                    <option value="DECE" id="dip" class="dip">Dip. ECE</option>
+                    <option value="DCVIL" id="dip" class="dip">Dip. Civil</option>
+                    <option value="DIT" id="dip" class="dip">Dip. IT</option>
+                    <option value="DMECH" id="dip" class="dip">Dip. MECH</option>
+                    <option value="DELEC" id="dip" class="dip">Dip. ELEC</option>
+				</select></td>
+			</tr>
+			<tr>
+				<td>PREFERENCE 3:</td>
+				<td><select name="preference 3" id="3p">
+					<option value="">Preference 3</option>
+					<option value="BCSE" id="btech" class="btech">Btech. CSE</option>
+                    <option value="BCIVIL" id="btech" class="btech">Btech. CIVIL</option>
+                    <option value="BECE" id="btech" class="btech">Btech. ECE</option>
+                    <option value="DCE" id="dip" class="dip">DCE</option>
+                    <option value="DECE" id="dip" class="dip">Dip. ECE</option>
+                    <option value="DCVIL" id="dip" class="dip">Dip. Civil</option>
+                    <option value="DIT" id="dip" class="dip">Dip. IT</option>
+                    <option value="DMECH" id="dip" class="dip">Dip. MECH</option>
+                    <option value="DELEC" id="dip" class="dip">Dip. ELEC</option>
+				</select></td>
+			</tr>
+
+
+			<tr>
+				<td><center><h3>Educational Qualification</h3></center></td>
+			</tr>
+			<tr>
+				<td>QUALIFICATION:</td>
+				<tr>
+                <td><b><u>10<sup>th</sup> Board</u></b></td>
+            </tr>
+			<tr>
+                <td>BOARD</td>
+                <td><input type="text" name="" id="10board" placeholder="Board"></td>
+            </tr>
+            <tr>
+                <td>10<sup>th</sup> percentage</td>
+                <td><input type="text" name="" id="10b" placeholder="Percentage"></td>
+            </tr>
+            <tr>
+                <td>Year of passing</td>
+                <td><input type="number" name="" id="tnyear" placeholder="Year of passing"></td>
+            </tr>
+           
+            <tr>
+                <td><b><u>12<sup>th</sup> Board</u></b></td>
+            </tr>
+			<tr>
+                <td>BOARD</td>
+                <td><input type="text" name="" id="12board" placeholder="Board"></td>
+            </tr>
+            <tr>
+                <td>12<sup>th</sup> percentage</td>
+                <td><input type="text" name="" id="12b" placeholder="Percentage"></td>
+            </tr>
+            <tr>
+                <td>Year of passing</td>
+                <td><input type="number" name="" id="twyear" placeholder="Year of passing"></td>
+            </tr>
+					
+			</tr>
+			<tr>
+				<td>ADDITIONAL QUALIFICATION</td>
+				<td>
+					<table>
+					<tr>
+						<td><input type="text" name="aqualification"></td>
+						<td><input type="file" name="photo"></td>
+					</tr>
+					</table>
+				</td>				
+			</tr>
+			<tr>
+				<td>CATEGORY</td>
+				<td>
+					<table>
+					<tr>
+						<td><input type="text" name="category"></td>
+						<td><input type="file" name="photo"></td>
+					</tr>
+					</table>
+				</td>
+				
+			</tr>
+		</table><br>
+		<div>
+			<input type="submit" onClick="validate()" name="SUBMIT">
+			<input type="reset" name="RESET">
+		</div>
+
+	</form>
+
+</body>
+</html>
